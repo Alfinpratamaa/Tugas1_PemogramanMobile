@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,47 +8,71 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_custom"
+        android:paddingTop="20dp"
+        android:layout_marginTop="-30dp"
+     >
+                <ImageView
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginBottom="10sp"
+                    android:src="@drawable/utb_kotak" />
+
+
+    </RelativeLayout>
+
+
     <LinearLayout
+        android:layout_below="@id/header"
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp">
+        android:layout_margin="5dp"
+        android:orientation="vertical">
 
-        <ImageView
 
-            android:layout_width="178dp"
-            android:layout_height="90dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="60dp"
-            android:src="@drawable/utb_kotak" />
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="15dp"
             android:text="Mobile Programming 1"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/nama"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nama">
+                android:backgroundTint="@color/primary"
+                app:hintTextColor="@color/primary"
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:drawableStart="@drawable/ic_name"
+                    android:drawablePadding="4dp"
+                    android:hint="Nama"
+                    android:textColorHint="@color/primary"
                     android:id="@+id/textInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -59,10 +83,17 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="Kelas">
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/primary"
+                app:hintTextColor="@color/primary"
+                app:boxStrokeColor="@color/primary">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:drawableStart="@drawable/classroom"
+                    android:drawableTint="@color/primary"
+                    android:drawablePadding="4dp"
+                    android:hint="Kelas"
+                    android:textColorHint="@color/primary"
                     android:id="@+id/textKelas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -73,18 +104,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="8dp"
             android:text="Jenis Kelamin"
             android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="25dp"
-            android:orientation="vertical">
+            android:backgroundTint="@color/primary"
+            android:orientation="vertical"
+            android:outlineAmbientShadowColor="@color/primary"
+            android:outlineSpotShadowColor="@color/primary">
 
             <RadioButton
                 android:id="@+id/laki"
@@ -105,25 +140,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:text="Matkul Kesukaan"
             android:textSize="15sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="10dp"/>
+            android:textStyle="bold" />
 
         <GridLayout
-            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/primary"
             android:orientation="horizontal">
 
             <CheckBox
+                android:id="@+id/kalkulus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Kalkulus" />
 
             <CheckBox
+                android:id="@+id/webProgramming"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
@@ -134,32 +172,59 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="-20dp"
+            android:layout_marginTop="-8dp"
+            android:backgroundTint="@color/primary"
             android:orientation="horizontal">
 
             <CheckBox
+                android:id="@+id/matematika"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/primary"
                 android:text="Matematika" />
 
             <CheckBox
+                android:id="@+id/bInggris"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="58dp"
                 android:text="B.Inggris" />
         </GridLayout>
 
+        <LinearLayout
+            android:id="@+id/submitLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="28dp"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/primary"
+                    android:text="Submit"
+                    android:textColor="@color/white" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:foregroundTint="@color/white"
+                    android:progressTint="@color/white"
+                    android:visibility="gone" />
+            </FrameLayout>
+        </LinearLayout>
+
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.108"
-        tools:layout_editor_absoluteX="16dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
